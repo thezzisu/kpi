@@ -1,0 +1,22 @@
+{
+  "name": "pku-cli",
+  "author": "thezzisu <thezzisu@gmail.com>",
+  "version": "1.0.0",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "scripts": {},
+  "dependencies": {
+    "node-fetch": "^3.2.10",
+    "reflect-metadata": "^0.1.13",
+    "yargs": "^17.5.1"
+  },
+  "devDependencies": {
+    "@types/yargs": "^17.0.11"
+  },
+  "bin": {
+    "pku": "lib/cli.js"
+  },
+  "files": [
+    "lib"
+  ]
+}
