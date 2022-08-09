@@ -25,7 +25,7 @@ export class PKUIts {
       body: new URLSearchParams(payload)
     })
     const data = <Record<string, string>>await resp.json()
-    if (Object.hasOwn(data, 'succ')) {
+    if ('succ' in data) {
       const { SCOPE, CONNECTIONS, BALANCE_EN, IP } = data
       return {
         scope: SCOPE,

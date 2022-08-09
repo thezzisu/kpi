@@ -5,6 +5,7 @@ import { fileURLToPath } from 'url'
 import { inspect } from 'util'
 import yargs from 'yargs'
 import { hideBin } from 'yargs/helpers'
+import chalk from 'chalk'
 import {
   PKU,
   getCollectionDescription,
@@ -66,9 +67,11 @@ function build(argv: yargs.Argv, node: any) {
         try {
           const result = await node[method](...args)
           console.log(inspect(result, false, null, true))
-          console.log('Success')
+          console.log(chalk.greenBright('[+] Success'))
         } catch (e) {
-          console.error(e)
+          console.log(e)
+          console.log(chalk.redBright(`[!] Failed`))
+          process.exit(1)
         }
       }
     )
