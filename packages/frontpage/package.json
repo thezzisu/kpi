@@ -1,0 +1,34 @@
+{
+  "name": "frontpage",
+  "private": true,
+  "version": "2.0.0-dev.1",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thezzisu/kpi.git",
+    "directory": "packages/frontpage"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test:type": "vue-tsc --noEmit",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.15.1",
+    "github-markdown-css": "^5.1.0",
+    "markdown-it": "^13.0.1",
+    "quasar": "^2.7.7",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.3"
+  },
+  "devDependencies": {
+    "@quasar/vite-plugin": "^1.1.1",
+    "@types/markdown-it": "^12.2.3",
+    "@vitejs/plugin-vue": "^3.0.0",
+    "sass": "1.32.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.0",
+    "vue-tsc": "^0.38.4"
+  }
+}
