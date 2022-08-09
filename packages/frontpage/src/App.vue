@@ -18,7 +18,7 @@
           to="/"
           class="app-logo"
         >
-          <img class="app-logo__text" src="src/assets/text.svg" />
+          <img class="app-logo__text" src="/svg/text.svg" />
         </q-btn>
       </q-toolbar>
     </q-header>
@@ -34,7 +34,7 @@
       <q-list>
         <q-item to="/" exact>
           <q-item-section avatar>
-            <img src="src/assets/zisu.svg" width="24" />
+            <img src="/svg/zisu.svg" width="24" />
           </q-item-section>
           <q-item-section>
             <q-item-label>Home</q-item-label>
