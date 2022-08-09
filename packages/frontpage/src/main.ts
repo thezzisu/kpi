@@ -7,6 +7,7 @@ import 'github-markdown-css/github-markdown.css'
 import { router } from 'src/routes'
 import App from 'src/App.vue'
 import 'src/styles/index.scss'
+import 'src/styles/overrides.scss'
 
 const app = createApp(App)
 

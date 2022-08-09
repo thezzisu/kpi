@@ -20,12 +20,22 @@
         >
           <img class="app-logo__text" src="/svg/text.svg" />
         </q-btn>
+        <q-space />
+        <user-indicator />
+        <q-btn
+          stretch
+          flat
+          icon="mdi-github"
+          text-color="black"
+          target="_blank"
+          href="https://github.com/thezzisu/kpi/tree/dev/packages/frontpage"
+        />
       </q-toolbar>
     </q-header>
 
     <q-drawer
       v-model="nav"
-      class="bg-grey-3"
+      class="app-nav"
       side="left"
       show-if-above
       :width="220"
@@ -71,6 +81,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import UserIndicator from 'src/components/UserIndicator.vue'
 
 const nav = ref<boolean | undefined>(undefined)
 const menu = [{ icon: 'mdi-information', label: 'About', to: '/about' }]
@@ -78,7 +89,7 @@ const menu = [{ icon: 'mdi-information', label: 'About', to: '/about' }]
 
 <style lang="scss">
 .app-header {
-  background-color: #cfd8dc1a;
+  background-color: #e4eef3bf;
   backdrop-filter: blur(10px);
 }
 
@@ -88,5 +99,10 @@ const menu = [{ icon: 'mdi-information', label: 'About', to: '/about' }]
     vertical-align: center;
     margin-bottom: -4px;
   }
+}
+
+.app-nav {
+  background: #f2f2f2cc;
+  backdrop-filter: blur(10px);
 }
 </style>

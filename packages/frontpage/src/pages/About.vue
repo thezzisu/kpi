@@ -5,10 +5,10 @@
         <q-card-section>
           <div class="column items-center q-gutter-md">
             <div style="position: relative">
-              <img src="src/assets/zisu.svg" width="128" />
+              <img src="/svg/zisu.svg" width="128" />
               <q-badge color="orange" floating>{{ version }}</q-badge>
             </div>
-            <img src="src/assets/text.svg" height="64" />
+            <img src="/svg/text.svg" height="64" />
           </div>
         </q-card-section>
       </q-card>
