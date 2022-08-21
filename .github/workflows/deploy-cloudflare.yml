@@ -1,0 +1,33 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches: ['dev']
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    name: Deploy to Cloudflare Pages
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install dependencies
+        run: yarn
+      - name: Build frontpage
+        run: yarn workspace frontpage build
+      - name: Publish frontpage
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: frontpage
+          directory: packages/frontpage/dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
