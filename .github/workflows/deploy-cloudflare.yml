@@ -6,12 +6,12 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy:
+  deploy-frontpage:
+    name: frontpage
     runs-on: ubuntu-latest
     permissions:
       contents: read
       deployments: write
-    name: Deploy to Cloudflare Pages
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -31,3 +31,4 @@ jobs:
           projectName: frontpage
           directory: packages/frontpage/dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: main # Force cloudflare to publish

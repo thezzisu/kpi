@@ -1,65 +1,7 @@
 <template>
   <q-layout view="hHh Lpr lff">
-    <q-header elevated class="app-header">
-      <q-toolbar class="q-px-none">
-        <q-btn
-          stretch
-          flat
-          icon="mdi-menu"
-          text-color="black"
-          @click="nav = !nav"
-        />
-        <q-btn
-          stretch
-          flat
-          no-caps
-          no-wrap
-          text-color="black"
-          to="/"
-          class="app-logo"
-        >
-          <img class="app-logo__text" src="/svg/text.svg" />
-        </q-btn>
-        <q-space />
-        <user-indicator />
-        <q-btn
-          stretch
-          flat
-          icon="mdi-github"
-          text-color="black"
-          target="_blank"
-          href="https://github.com/thezzisu/kpi/tree/dev/packages/frontpage"
-        />
-      </q-toolbar>
-    </q-header>
-
-    <q-drawer
-      v-model="nav"
-      class="app-nav"
-      side="left"
-      show-if-above
-      :width="220"
-      :breakpoint="540"
-    >
-      <q-list>
-        <q-item to="/" exact>
-          <q-item-section avatar>
-            <img src="/svg/zisu.svg" width="24" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Home</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item v-for="(item, i) of menu" :key="i" :to="item.to" exact>
-          <q-item-section avatar>
-            <q-icon :name="item.icon" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>{{ item.label }}</q-item-label>
-          </q-item-section>
-        </q-item>
-      </q-list>
-    </q-drawer>
+    <app-header v-model="nav" />
+    <app-nav :nav="nav" />
 
     <q-page-container>
       <router-view v-slot="{ Component }">
@@ -69,40 +11,15 @@
       </router-view>
     </q-page-container>
 
-    <q-footer elevated>
-      <div class="row justify-center">
-        <div>
-          <code>&copy; thezzisu {{ new Date().getFullYear() }}</code>
-        </div>
-      </div>
-    </q-footer>
+    <app-footer />
   </q-layout>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import UserIndicator from 'src/components/UserIndicator.vue'
+import AppNav from 'src/components/AppNav.vue'
+import AppHeader from 'src/components/AppHeader.vue'
+import AppFooter from 'src/components/AppFooter.vue'
 
 const nav = ref<boolean | undefined>(undefined)
-const menu = [{ icon: 'mdi-information', label: 'About', to: '/about' }]
 </script>
-
-<style lang="scss">
-.app-header {
-  background-color: #e4eef3bf;
-  backdrop-filter: blur(10px);
-}
-
-.app-logo {
-  &__text {
-    height: 32px;
-    vertical-align: center;
-    margin-bottom: -4px;
-  }
-}
-
-.app-nav {
-  background: #f2f2f2cc;
-  backdrop-filter: blur(10px);
-}
-</style>
