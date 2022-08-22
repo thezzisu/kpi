@@ -6,8 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  deploy-frontpage:
-    name: frontpage
+  frontpage:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -30,5 +29,31 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: frontpage
           directory: packages/frontpage/dist
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          branch: main # Force cloudflare to publish
+
+  statpage:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install dependencies
+        run: yarn
+      - name: Build statpage
+        run: yarn workspace statpage build
+      - name: Publish statpage
+        uses: cloudflare/pages-action@1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: statpage
+          directory: packages/statpage/dist
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           branch: main # Force cloudflare to publish
