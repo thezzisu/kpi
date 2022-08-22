@@ -1,26 +1,14 @@
 <template>
   <q-header elevated class="app-header">
-    <q-toolbar class="q-px-none">
+    <q-toolbar class="q-px-none" :class="{ 'text-dark': !$q.dark.isActive }">
       <q-btn
         stretch
         flat
         icon="mdi-menu"
-        text-color="black"
         @click="emit('update:modelValue', !props.modelValue)"
       />
-      <q-btn
-        stretch
-        flat
-        no-caps
-        no-wrap
-        text-color="black"
-        to="/"
-        class="app-logo"
-      >
-        <img
-          class="app-logo__text"
-          src="https://asset.zisu.dev/svg/logo-text.svg"
-        />
+      <q-btn stretch flat no-caps no-wrap to="/" class="app-logo">
+        <span class="text-h5 font-juliamo app-logo_text">ZISU.dev</span>
       </q-btn>
       <q-space />
       <user-indicator />
@@ -28,7 +16,6 @@
         stretch
         flat
         icon="mdi-github"
-        text-color="black"
         target="_blank"
         href="https://github.com/thezzisu/kpi/tree/dev/packages/frontpage"
       />
@@ -37,8 +24,10 @@
 </template>
 
 <script setup lang="ts">
+import { useQuasar } from 'quasar'
 import UserIndicator from 'src/components/UserIndicator.vue'
 
+const $q = useQuasar()
 const props = defineProps<{ modelValue: boolean | undefined }>()
 const emit = defineEmits(['update:modelValue'])
 </script>
@@ -51,9 +40,14 @@ const emit = defineEmits(['update:modelValue'])
 
 .app-logo {
   &__text {
-    height: 32px;
-    vertical-align: center;
-    margin-bottom: -4px;
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .app-header {
+    background-color: #1f2122bf;
   }
 }
 </style>

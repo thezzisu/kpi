@@ -17,9 +17,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useQuasar } from 'quasar'
 import AppNav from 'src/components/AppNav.vue'
 import AppHeader from 'src/components/AppHeader.vue'
 import AppFooter from 'src/components/AppFooter.vue'
+
+const $q = useQuasar()
+$q.dark.set('auto')
 
 const nav = ref<boolean | undefined>(undefined)
 </script>
