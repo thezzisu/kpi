@@ -15,30 +15,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useQuasar } from 'quasar'
 import AppFooter from 'src/components/AppFooter.vue'
 import AppNav from './components/AppNav.vue'
 import AppHeader from './components/AppHeader.vue'
 
+const $q = useQuasar()
+$q.dark.set('auto')
+
 const nav = ref<boolean | undefined>(undefined)
-const menu = [{ icon: 'mdi-home', label: 'Home', to: '/' }]
 </script>
-
-<style lang="scss">
-.app-header {
-  background-color: #e4eef3bf;
-  backdrop-filter: blur(10px);
-}
-
-.app-logo {
-  &__text {
-    height: 32px;
-    vertical-align: center;
-    margin-bottom: -4px;
-  }
-}
-
-.app-nav {
-  background: #f2f2f2cc;
-  backdrop-filter: blur(10px);
-}
-</style>

@@ -33,13 +33,22 @@
 </template>
 
 <script setup lang="ts">
-const { nav } = defineProps<{ nav: boolean | undefined }>()
-const menu = [{ icon: 'mdi-home', label: 'Home', to: '/' }]
+const { nav } = defineProps<{ nav: any }>()
+const menu = [
+  { icon: 'mdi-home', label: 'Home', to: '/' },
+  { icon: 'mdi-presentation-play', label: 'Board', to: '/board' }
+]
 </script>
 
 <style lang="scss">
 .app-nav {
   background: #f2f2f2cc;
   backdrop-filter: blur(10px);
+}
+
+@media (prefers-color-scheme: dark) {
+  .app-nav {
+    background: #1a1717cc;
+  }
 }
 </style>
