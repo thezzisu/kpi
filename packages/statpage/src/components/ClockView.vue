@@ -1,5 +1,8 @@
 <template>
-  <div class="clock-container column justify-center font-juliamo">
+  <div
+    class="clock-container column font-juliamo justify-center"
+    :class="{ 'items-end': embed, 'clock-embed': embed }"
+  >
     <div class="clock-time">{{ time }}</div>
     <div class="clock-date">{{ date }}</div>
   </div>
@@ -7,6 +10,8 @@
 
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref } from 'vue'
+
+const { embed } = defineProps<{ embed?: boolean }>()
 
 const time = ref('')
 const date = ref('')
@@ -42,7 +47,7 @@ onUnmounted(() => {
 })
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .clock-time {
   font-size: 6rem;
   text-align: center;
@@ -54,14 +59,22 @@ onUnmounted(() => {
 }
 
 .is-fullscreen {
-  .clock-time {
+  .clock-time :not(.clock-embed) {
     font-size: clamp(2rem, min(25vh, 15vw), 30rem);
-    text-align: center;
+  }
+
+  .clock-date :not(.clock-embed) {
+    font-size: clamp(2rem, min(10vh, 7vw), 30rem);
+  }
+}
+
+.clock-embed {
+  .clock-time {
+    font-size: 2rem;
   }
 
   .clock-date {
-    font-size: clamp(2rem, min(10vh, 7vw), 30rem);
-    text-align: center;
+    font-size: 1rem;
   }
 }
 </style>

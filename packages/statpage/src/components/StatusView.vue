@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" scoped>
 import { useStatus } from 'src/composables/status'
 
 const PAGE_ID = 'rm4gOFAYgV'
@@ -31,7 +31,7 @@ const { status, text, loading, countdownRatio } = useStatus(PAGE_ID)
 .status-progress {
   position: absolute;
   width: 100%;
-  top: 0;
+  bottom: 0;
 }
 
 .status-title {
