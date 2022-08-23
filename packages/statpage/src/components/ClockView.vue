@@ -20,7 +20,7 @@ function refresh() {
   const now = new Date()
   const hours = now.getHours()
   time.value =
-    [hours % 12, now.getMinutes(), now.getSeconds()]
+    [hours % 12 || 12, now.getMinutes(), now.getSeconds()]
       .map((x) => pz(x))
       .join(':') +
     ' ' +

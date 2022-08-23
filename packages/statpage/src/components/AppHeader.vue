@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ modelValue: boolean | undefined }>()
+const props = defineProps<{ modelValue: any }>()
 const emit = defineEmits(['update:modelValue'])
 </script>
 

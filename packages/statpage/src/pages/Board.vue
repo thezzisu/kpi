@@ -14,31 +14,24 @@
         <q-separator />
         <q-carousel
           v-model="slide"
-          transition-prev="scale"
-          transition-next="scale"
           swipeable
           animated
+          infinite
+          autoplay
           :control-color="$q.dark.isActive ? 'white' : 'black'"
           navigation
           padding
           arrows
           height="300px"
           ref="root"
+          keep-alive
+          keep-alive-include="status"
         >
           <q-carousel-slide name="clock" class="column no-wrap flex-center">
             <clock-view />
           </q-carousel-slide>
-          <q-carousel-slide name="tv" class="column no-wrap flex-center">
-            <q-icon name="live_tv" size="56px" />
-            <div class="q-mt-md text-center">66666</div>
-          </q-carousel-slide>
-          <q-carousel-slide name="layers" class="column no-wrap flex-center">
-            <q-icon name="layers" size="56px" />
-            <div class="q-mt-md text-center">66666</div>
-          </q-carousel-slide>
-          <q-carousel-slide name="map" class="column no-wrap flex-center">
-            <q-icon name="terrain" size="56px" />
-            <div class="q-mt-md text-center">66666</div>
+          <q-carousel-slide name="status" class="column no-wrap flex-center">
+            <status-view />
           </q-carousel-slide>
         </q-carousel>
       </q-card>
@@ -52,6 +45,7 @@ import type { QCarousel } from 'quasar'
 import { useQuasar } from 'quasar'
 import { useRouter } from 'vue-router'
 import ClockView from 'src/components/ClockView.vue'
+import StatusView from 'src/components/StatusView.vue'
 
 const $q = useQuasar()
 const $router = useRouter()

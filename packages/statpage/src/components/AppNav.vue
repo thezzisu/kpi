@@ -38,6 +38,9 @@ const menu = [
   { icon: 'mdi-home', label: 'Home', to: '/' },
   { icon: 'mdi-presentation-play', label: 'Board', to: '/board' }
 ]
+if (import.meta.env.DEV) {
+  menu.push({ icon: 'mdi-code-braces', label: 'Playground', to: '/playground' })
+}
 </script>
 
 <style lang="scss">

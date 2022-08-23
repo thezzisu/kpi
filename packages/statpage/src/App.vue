@@ -23,5 +23,5 @@ import AppHeader from './components/AppHeader.vue'
 const $q = useQuasar()
 $q.dark.set('auto')
 
-const nav = ref<boolean | undefined>(undefined)
+const nav = ref<boolean | null>(null)
 </script>
