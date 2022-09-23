@@ -12,11 +12,6 @@ export const router = createRouter({
       name: 'about',
       path: '/about',
       component: () => import('src/pages/About.vue')
-    },
-    {
-      name: 'oauth',
-      path: '/oauth/:href',
-      component: () => import('src/pages/OAuth.vue')
     }
   ]
 })

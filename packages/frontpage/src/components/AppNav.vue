@@ -38,6 +38,12 @@
 const { nav } = defineProps<{ nav: boolean | undefined }>()
 const menu = [
   {
+    icon: 'mdi-format-float-right',
+    label: 'Blog',
+    href: 'https://blog.zisu.dev',
+    target: '_blank'
+  },
+  {
     icon: 'mdi-presentation',
     label: 'Slides',
     href: 'https://slides.zisu.dev',

@@ -11,7 +11,6 @@
         <span class="text-h5 font-juliamo app-logo_text">ZISU.dev</span>
       </q-btn>
       <q-space />
-      <user-indicator />
       <q-btn
         stretch
         flat
@@ -25,7 +24,6 @@
 
 <script setup lang="ts">
 import { useQuasar } from 'quasar'
-import UserIndicator from 'src/components/UserIndicator.vue'
 
 const $q = useQuasar()
 const props = defineProps<{ modelValue: boolean | undefined }>()

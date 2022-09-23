@@ -25,5 +25,5 @@ import AppFooter from 'src/components/AppFooter.vue'
 const $q = useQuasar()
 $q.dark.set('auto')
 
-const nav = ref<boolean | undefined>(undefined)
+const nav = ref<boolean>($q.screen.width >= 540)
 </script>
