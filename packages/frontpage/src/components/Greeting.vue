@@ -38,6 +38,20 @@
         </template>
       </div>
     </q-card-section>
+    <q-separator />
+    <q-card-section class="font-mono">
+      <div class="text-center">A proud member of</div>
+      <div class="flex justify-center">
+        <q-btn
+          icon="mdi-train"
+          target="_blank"
+          href="https://www.travellings.cn/go.html"
+          outline
+          label="Travelling"
+          class="text-capitalize"
+        />
+      </div>
+    </q-card-section>
   </q-card>
 </template>
 
