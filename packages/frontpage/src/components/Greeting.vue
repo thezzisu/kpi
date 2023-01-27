@@ -39,6 +39,8 @@
       </div>
     </q-card-section>
     <q-separator />
+    <FriendLinks class="font-mono" />
+    <q-separator />
     <q-card-section class="font-mono">
       <div class="text-center">A proud member of</div>
       <div class="flex justify-center">
@@ -56,6 +58,8 @@
 </template>
 
 <script lang="ts" setup>
+import FriendLinks from './FriendLinks.vue'
+
 const social = [
   {
     href: 'https://github.com/thezzisu',
