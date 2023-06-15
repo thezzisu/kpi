@@ -44,6 +44,12 @@ const menu = [
     target: '_blank'
   },
   {
+    icon: 'mdi-git',
+    label: 'Git',
+    href: 'https://git.zisu.dev',
+    target: '_blank'
+  },
+  {
     icon: 'mdi-presentation',
     label: 'Slides',
     href: 'https://slides.zisu.dev',
